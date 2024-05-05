@@ -23,12 +23,6 @@ importers:
       '@types/node':
         specifier: ^16.18.96
         version: 16.18.96
-      '@types/react':
-        specifier: ^18.2.79
-        version: 18.2.79
-      '@types/react-dom':
-        specifier: ^18.2.25
-        version: 18.2.25
       idb-keyval:
         specifier: ^6.2.1
         version: 6.2.1
@@ -47,6 +41,13 @@ importers:
       web-vitals:
         specifier: ^2.1.4
         version: 2.1.4
+    devDependencies:
+      '@types/react':
+        specifier: ^18.2.79
+        version: 18.2.79
+      '@types/react-dom':
+        specifier: ^18.2.25
+        version: 18.2.25
 
 packages:
 

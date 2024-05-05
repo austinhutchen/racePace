@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { set, get } from 'idb-keyval';
 
@@ -16,18 +16,22 @@ function App() {
     const paceSecondsPerKm = (time * 60) / distance;
     const paceMinutesPerKm = paceSecondsPerKm / 60;
 
-    setRacePace(`Your race pace for a ${distance} km race is approximately ${paceMinutesPerKm.toFixed(2)} minutes per kilometer.`);
+    const newRacePace = `Your race pace for a ${distance} km race is approximately ${paceMinutesPerKm.toFixed(2)} minutes per kilometer.`;
+
+    setRacePace(newRacePace);
 
     // Save data to IndexedDB for offline access
-    await set('racePace', racePace);
+    await set('racePace', newRacePace);
   };
 
   // Load cached data on app startup
-  get('racePace').then((cachedRacePace) => {
-    if (cachedRacePace) {
-      setRacePace(cachedRacePace);
-    }
-  });
+  useEffect(() => {
+    get('racePace').then((cachedRacePace: any) => {
+      if (cachedRacePace) {
+        setRacePace(cachedRacePace);
+      }
+    });
+  }, []);
 
   return (
     <div className="App">
