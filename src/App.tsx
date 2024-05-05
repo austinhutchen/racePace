@@ -45,6 +45,7 @@ function App() {
       fontFamily: 'Arial, sans-serif',
       padding: '20px'
     }}>
+      <iframe src={process.env.PUBLIC_URL + '/myGif.gif'} width="auto" height="100%" className="giphy-embed" ></iframe>
       <h1>Race Pace Calculator</h1>
       <label htmlFor="distance">Distance (in kilometers):</label>
       <input
@@ -76,4 +77,4 @@ function App() {
     </div>
   );
 }
-  export default App;
+export default App;
