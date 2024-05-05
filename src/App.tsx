@@ -34,7 +34,17 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" style={{
+      background: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#333',
+      fontFamily: 'Arial, sans-serif',
+      padding: '20px'
+    }}>
       <h1>Race Pace Calculator</h1>
       <label htmlFor="distance">Distance (in kilometers):</label>
       <input
@@ -52,10 +62,18 @@ function App() {
         onChange={(e) => setTime(parseFloat(e.target.value))}
       />
       <br />
-      <button onClick={calculateRacePace}>Calculate Pace</button>
+      <button style={{
+        backgroundColor: '#ff7f7f',
+        color: '#fff',
+        border: 'none',
+        borderRadius: '5px',
+        padding: '10px 20px',
+        fontSize: '1em',
+        cursor: 'pointer',
+        marginTop: '20px'
+      }} onClick={calculateRacePace}>Calculate Pace</button>
       <p id="result">{racePace}</p>
     </div>
   );
 }
-
-export default App;
+  export default App;
